@@ -1,3 +1,9 @@
+## 0.1.0
+- Renamed `dateFormat` parameter to `customFormat` for better clarity
+- Added support for custom date format strings alongside preset enums
+- Updated README with custom format usage examples
+- Improved documentation structure and examples
+
 ## 0.0.3
 - Fixed image width
 

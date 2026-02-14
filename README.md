@@ -19,26 +19,10 @@ across Flutter projects.
 - ✅ Format date from **DateTime**
 - ✅ Convert **String → DateTime**
 - ✅ Preset enums for date & time formats
+- ✅ Support for **custom date format strings**
 - ✅ Safe parsing (no crashes)
 - ✅ Locale-aware via `intl`
 - ✅ Tiny, dependency-light package
-
----
-
-## 📦 Installation
-
-Add this to your `pubspec.yaml`:
-
-```yaml
-dependencies:
-  simple_date_time: ^0.0.1
-````
-
-Then run:
-
-```bash
-flutter pub get
-```
 
 ---
 
@@ -52,7 +36,7 @@ import 'package:simple_date_time/simple_date_time.dart';
 
 ---
 
-## 📅 Format Date from String
+## 📅 Format Date from String (Preset)
 
 ```dart
 SimpleDateTime.formatStringDateTime(
@@ -66,6 +50,27 @@ SimpleDateTime.formatStringDateTime(
 ```
 18 Nov 2025
 ```
+
+---
+
+## 🎨 Format Date from String (Custom Format)
+
+Use `customFormat` when you want full control over the date pattern.
+
+```dart
+SimpleDateTime.formatStringDateTime(
+  date: '2025-11-18 22:30:45.000',
+  customFormat: 'EEEE, dd MMM yyyy',
+);
+```
+
+**Output**
+
+```
+Tuesday, 18 Nov 2025
+```
+
+> ℹ️ `customFormat` uses `intl` date patterns.
 
 ---
 

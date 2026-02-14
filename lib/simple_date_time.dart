@@ -16,7 +16,7 @@ class SimpleDateTime {
   /// If the string contains a space but no `T` separator it is converted to
   /// ISO 8601 form. The resulting `DateTime` is converted to local time.
   ///
-  /// Either [dateFormat] or [dateFormatPreset] may be provided to select the
+  /// Either [customFormat] or [dateFormatPreset] may be provided to select the
   /// output pattern; presets are defined by [SimpleDateFormat].
   /// If [includeTime] is true a time portion is appended using either
   /// [timeFormatPreset] or a default of `hh:mm a`.
@@ -24,7 +24,7 @@ class SimpleDateTime {
   /// Returns an empty string on parse failure or when [date] is null/empty.
   static String formatStringDateTime({
     String? date,
-    String? dateFormat = 'yyyy-MM-dd',
+    String? customFormat = 'yyyy-MM-dd',
     SimpleDateFormat? dateFormatPreset,
     SimpleTimeFormat? timeFormatPreset,
     bool includeTime = false,
@@ -40,7 +40,7 @@ class SimpleDateTime {
 
       DateTime dateTime = DateTime.parse(decoded).toLocal();
 
-      final datePattern = dateFormatPreset?.pattern ?? dateFormat;
+      final datePattern = dateFormatPreset?.pattern ?? customFormat;
 
       final formattedDate = DateFormat(datePattern).format(dateTime);
 
@@ -62,14 +62,14 @@ class SimpleDateTime {
   /// Similar to [formatStringDateTime] but accepts a `DateTime` directly.
   /// The resulting value may be converted to local time based on [toLocal].
   ///
-  /// [dateFormat] and [dateFormatPreset] control the date portion, while
+  /// [customFormat] and [dateFormatPreset] control the date portion, while
   /// [timeFormatPreset] and [includeTime] determine the time portion. Defaults
   /// mirror those in [formatStringDateTime].
   ///
   /// Returns an empty string if formatting fails.
   static String formatDateTime({
     required DateTime dateTime,
-    String? dateFormat,
+    String? customFormat,
     SimpleDateFormat? dateFormatPreset,
     SimpleTimeFormat? timeFormatPreset,
     bool includeTime = false,
@@ -79,7 +79,7 @@ class SimpleDateTime {
       final DateTime finalDateTime = toLocal ? dateTime.toLocal() : dateTime;
 
       final datePattern =
-          dateFormatPreset?.pattern ?? dateFormat ?? 'yyyy-MM-dd';
+          dateFormatPreset?.pattern ?? customFormat ?? 'yyyy-MM-dd';
 
       final formattedDate = DateFormat(datePattern).format(finalDateTime);
 
