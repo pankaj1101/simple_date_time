@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/pankaj1101/simple_date_time/main/assets/banner.png"
+  <img src="https://raw.githubusercontent.com/pankaj1101/simple_date_time/refs/heads/main/assets/banner.png"
        alt="simple_date_time banner" />
 </p>
 
