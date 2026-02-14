@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="assets/banner.png" alt="simple_date_time banner" />
+  <img src="https://raw.githubusercontent.com/pankaj1101/simple_date_time/main/assets/banner.png"
+       alt="simple_date_time banner" />
 </p>
 
 # simple_date_time
