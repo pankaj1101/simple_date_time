@@ -180,10 +180,8 @@ Safe for production use.
 
 ---
 
-## 📄 License
-
-MIT License
-Free to use in personal and commercial projects.
+## License
+MIT License © 2026 Pankaj Ram
 
 ---
 
