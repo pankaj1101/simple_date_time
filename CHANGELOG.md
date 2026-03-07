@@ -1,3 +1,8 @@
+## 1.0.0
+- Removed `intl` dependency
+- Added pre-built formatters for common date & time formats
+- Updated README with new examples
+
 ## 0.1.2
 - Added MIT License and updated README
 

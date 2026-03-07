@@ -1,6 +1,6 @@
 name: simple_date_time
 description: A lightweight Flutter utility to format date and time safely with presets.
-version: 0.1.2
+version: 1.0.0
 repository: https://github.com/pankaj1101/simple_date_time
 issue_tracker: https://github.com/pankaj1101/simple_date_time/issues
 homepage: https://pub.dev/packages/simple_date_time
@@ -12,7 +12,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:

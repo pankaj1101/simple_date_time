@@ -1,14 +1,17 @@
-export 'package:simple_date_time/enums/simple_date_format_enums.dart';
-export 'package:simple_date_time/enums/simple_time_format_enums.dart';
+library simple_date_time;
 
-import 'package:intl/intl.dart';
-import 'package:simple_date_time/simple_date_time.dart';
+import 'package:simple_date_time/src/formatter/date_time_formatter.dart';
+import 'package:simple_date_time/src/parser/date_time_parser.dart';
 
-/// A helper class offering simple date/time formatting and parsing
-/// utilities based on the `intl` package.
+import 'enums/simple_date_format_enums.dart';
+import 'enums/simple_time_format_enums.dart';
+
+export 'enums/simple_date_format_enums.dart';
+export 'enums/simple_time_format_enums.dart';
+
+/// A helper class offering simple date/time formatting and parsing utilities.
 ///
-/// All methods are static, making it easy to access them without
-/// instantiating the class.
+/// All methods are static, making it easy to access them without instantiating the class.
 class SimpleDateTime {
   /// Formats a date string into a desired pattern.
   ///
@@ -40,14 +43,15 @@ class SimpleDateTime {
 
       DateTime dateTime = DateTime.parse(decoded).toLocal();
 
-      final datePattern = dateFormatPreset?.pattern ?? customFormat;
+      final datePattern =
+          dateFormatPreset?.pattern ?? customFormat ?? 'yyyy-MM-dd';
 
-      final formattedDate = DateFormat(datePattern).format(dateTime);
+      final formattedDate = DateTimeFormatter.format(dateTime, datePattern);
 
       if (includeTime) {
         final timePattern =
             timeFormatPreset?.pattern ?? SimpleTimeFormat.hhMmAmPm.pattern;
-        final formattedTime = DateFormat(timePattern).format(dateTime);
+        final formattedTime = DateTimeFormatter.format(dateTime, timePattern);
         return '$formattedDate $formattedTime';
       }
 
@@ -81,13 +85,15 @@ class SimpleDateTime {
       final datePattern =
           dateFormatPreset?.pattern ?? customFormat ?? 'yyyy-MM-dd';
 
-      final formattedDate = DateFormat(datePattern).format(finalDateTime);
+      final formattedDate =
+          DateTimeFormatter.format(finalDateTime, datePattern);
 
       if (includeTime) {
         final timePattern =
             timeFormatPreset?.pattern ?? SimpleTimeFormat.hhMmAmPm.pattern;
 
-        final formattedTime = DateFormat(timePattern).format(finalDateTime);
+        final formattedTime =
+            DateTimeFormatter.format(finalDateTime, timePattern);
 
         return '$formattedDate $formattedTime';
       }
@@ -108,7 +114,7 @@ class SimpleDateTime {
     bool toLocal = true,
   }) {
     try {
-      final parsed = DateFormat(inputFormat).parse(date.trim());
+      final parsed = DateTimeParser.parse(date.trim(), inputFormat);
       return toLocal ? parsed.toLocal() : parsed;
     } catch (_) {
       return null;

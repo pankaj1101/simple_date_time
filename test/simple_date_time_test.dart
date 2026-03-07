@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:intl/intl.dart';
 import 'package:simple_date_time/simple_date_time.dart';
 
 void main() {
@@ -37,8 +36,6 @@ void main() {
 
   group('SimpleDateTime.formatDateTime', () {
     test('formats DateTime with date preset', () {
-      Intl.defaultLocale = 'en_US';
-
       final date = DateTime(2025, 11, 18, 22, 30);
 
       final result = SimpleDateTime.formatDateTime(

@@ -18,11 +18,11 @@ across Flutter projects.
 - ✅ Format date from **String**
 - ✅ Format date from **DateTime**
 - ✅ Convert **String → DateTime**
+- ✅ Tiny, dependency-light package
 - ✅ Preset enums for date & time formats
 - ✅ Support for **custom date format strings**
 - ✅ Safe parsing (no crashes)
-- ✅ Locale-aware via `intl`
-- ✅ Tiny, dependency-light package
+- ✅ No intl dependency
 
 ---
 
@@ -69,8 +69,6 @@ SimpleDateTime.formatStringDateTime(
 ```
 Tuesday, 18 Nov 2025
 ```
-
-> ℹ️ `customFormat` uses `intl` date patterns.
 
 ---
 

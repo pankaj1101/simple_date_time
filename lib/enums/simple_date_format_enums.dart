@@ -1,7 +1,7 @@
 /// Supported date formats used throughout the package.
 ///
 /// Each value corresponds to a human-readable pattern that can be
-/// retrieved via [AppDateFormatExtension.pattern].
+/// retrieved via [SimpleDateFormatExtension.pattern].
 ///
 /// Examples are included in comments for quick reference.
 enum SimpleDateFormat {
@@ -12,7 +12,7 @@ enum SimpleDateFormat {
   yyyyMMddSlash, // 2025/11/18
 }
 
-extension AppDateFormatExtension on SimpleDateFormat {
+extension SimpleDateFormatExtension on SimpleDateFormat {
   String get pattern {
     switch (this) {
       case SimpleDateFormat.yyyyMMdd:
